@@ -160,6 +160,13 @@ function gameloop() {
 	draw();
 	update();
   }
+
+function startGame() {
+	init();
+	clearInterval(f);
+	f = setInterval(gameloop, 100);
+    document.getElementById('start-button').disabled = true;
+}
   
 function showResult() {
 	// Clear the canvas
@@ -175,20 +182,16 @@ function showResult() {
 	pen.fillText("Game Over", W / 2, H / 2);
 	pen.font = "30px Roboto";
 	pen.fillText("Score: " + score, W / 2, H / 2 + 50);
+
+	// Enable the start button
+    document.getElementById('start-button').disabled = false;
   }
   
 
-  function startGame() {
-    if (!game_over) {
-        return; // Return if the game is already in progress
-    }
-    game_over = false;
-    document.getElementById('start-button').disabled = true;
-    init();
-    f = setInterval(gameloop, 100);
-}
+document.getElementById('start-button').addEventListener('click', startGame);
 
 init();
+
 var f = setInterval(gameloop,100);
 
 
