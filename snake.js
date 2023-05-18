@@ -1,5 +1,3 @@
-var f = setInterval(gameloop,100);;
-
 function init(){
 	canvas = document.getElementById('mycanvas');
 	W = H = canvas.width = canvas.height = 400;
@@ -163,7 +161,7 @@ function gameloop() {
 	update();
   }
   
-  function showResult() {
+function showResult() {
 	// Clear the canvas
 	pen.clearRect(0, 0, W, H);
   
@@ -180,16 +178,18 @@ function gameloop() {
   }
   
 
-function startGame() {
-    if (game_over) {
-        game_over = false;
-        document.getElementById('start-button').disabled = true;
-        init();
-        f = setInterval(gameloop, 100);
+  function startGame() {
+    if (!game_over) {
+        return; // Return if the game is already in progress
     }
+    game_over = false;
+    document.getElementById('start-button').disabled = true;
+    init();
+    f = setInterval(gameloop, 100);
 }
 
 init();
+var f = setInterval(gameloop,100);
 
 
 
