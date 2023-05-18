@@ -28,7 +28,7 @@ div{
 }
 
 .heading{
-    color:floralwhite;
+    color:rgb(255, 255, 255);
     padding: 1rem;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
@@ -52,13 +52,15 @@ div{
 .startbtn{
     padding: 0.81rem;
     text-align: center;
+    background-image: radial-gradient(#ff8a00 25%, transparent 90%);
+
 }
 
 #start-button{
     padding: 10px;
     border-radius: 6px;
-    background-color: rgb(67, 64, 64);
+    background-color: rgb(68, 71, 68);
     color: white;
     cursor: pointer;
-    font-size: 0.81rem;
+    font-size: 1rem;
 }
