@@ -6,7 +6,7 @@ function init(){
 	pen = canvas.getContext('2d');
 	cs = 26;
 	game_over = false;
-	score = 3;
+	score = 0;
 
 
 	//Create a Image Object for food
@@ -153,16 +153,32 @@ function getRandomFood(){
 
 }
 
-function gameloop(){
-    if(game_over==true){
-        clearInterval(f);
-        document.getElementById('start-button').disabled = false;
-        alert("Game Over");
-        return;
-    }
-    draw();
-    update();
-}
+function gameloop() {
+	if (game_over == true) {
+	  clearInterval(f);
+	  showResult();
+	  return;
+	}
+	draw();
+	update();
+  }
+  
+  function showResult() {
+	// Clear the canvas
+	pen.clearRect(0, 0, W, H);
+  
+	// Set the result text style
+	pen.fillStyle = "black";
+	pen.font = "40px Roboto";
+	pen.textAlign = "center";
+	pen.textBaseline = "middle";
+  
+	// Display the result message
+	pen.fillText("Game Over", W / 2, H / 2);
+	pen.font = "30px Roboto";
+	pen.fillText("Score: " + score, W / 2, H / 2 + 50);
+  }
+  
 
 function startGame() {
     if (game_over) {
